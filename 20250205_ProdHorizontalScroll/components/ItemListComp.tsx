@@ -42,6 +42,7 @@ export default function ItemListComp(): React.ReactElement {
 
 	const [itemList, setItemList] = useState<Array<Item>>(items);
 	const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+	const toggleSwitch = () => setIsDarkMode((previousState) => !previousState);
 
 	return (
 		<SafeAreaView style={[styles.container, { backgroundColor: isDarkMode ? "#333" : "#CAD5E4" }]}>
@@ -52,7 +53,7 @@ export default function ItemListComp(): React.ReactElement {
 					<Switch
 						trackColor={{ false: "#767577", true: "#f4f3f4" }}
 						thumbColor={isDarkMode ? "#767577" : "#f4f3f4"}
-						onValueChange={setIsDarkMode}
+						onValueChange={toggleSwitch}
 						value={isDarkMode}
 					/>
 				</View>
